@@ -12,3 +12,9 @@ Notes on learning:
         - this happens when an activation function consistiently outputs 0 (because the weight attached is too low) 
         - He initialization starts weights off at higher values than normal to avoid this
         - He initialization has a mean of 0 and a variance of 2/n, where n is the number of neurons feeding into this one
+        - upon further learning, while he initialization does improve relu death, it is not ideal for preventing it. instead, an asymmetric distribution (he is normal aka symmetric) which favors positive numbers over negatives would be better to avoid relu death. here's an article on the subject: https://towardsdatascience.com/the-dying-relu-problem-clearly-explained-42d0c54e0d24
+        ways this article suggests to prevent relu death:
+        - use a lower learning rate. In backpropagation, a new weight value is the difference between the old weight and the learning rate multiplied by the error w.r.t. the old weight.
+        - avoid negative biases
+        - use an asymmetric distribution for initializing weights, one that favors positive numbers
+        - use a variation of relu that doesn't output 0 for all negative numbers, but continues some path
